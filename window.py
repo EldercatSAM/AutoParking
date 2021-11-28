@@ -133,22 +133,16 @@ class HeroTank(pygame.sprite.Sprite):
         print(f"Current controller angle = {self.controller_angle}")
         delta_x = self.speed * math.sin(self.current_angle * math.pi / 180)
         delta_y = self.speed * math.cos(self.current_angle * math.pi / 180)
-        #print(delta_x, delta_y)
 
         if (self.current_x + delta_x) > 0 and (self.current_x+ delta_x) < 640:
-            # print(round(self.tank_rect.x+delta_x))
             self.current_x += delta_x
             self.tank_rect.x = self.current_x
         
         if (self.current_y + delta_y) > 0 and (self.current_y+ delta_y) < 480:
-            # print(round(self.tank_rect.x+delta_x))
             self.current_y += delta_y
             self.tank_rect.y = self.current_y
 
         self.tank_route.append([self.current_x, self.current_y])
-
-        #print(self.tank_rect)
-        #print(self.tank_rect.x)
 
         self.rotate(self.current_angle)
         self.current_angle = self.controller_angle
